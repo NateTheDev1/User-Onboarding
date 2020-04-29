@@ -19,7 +19,7 @@ const UserTable = ({ user }) => {
           <td>{user.name}</td>
           <td>{user.email}</td>
           <td>{user.password}</td>
-          <td>{user.terms}</td>
+          <td>{user.terms === true ? "Yes" : null}</td>
         </tr>
       </tbody>
     </Table>

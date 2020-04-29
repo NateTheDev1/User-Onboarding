@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Form, FormGroup, Input, Label, Row, Col, Button } from "reactstrap";
 import * as yup from "yup";
+import "./Form.css";
 
 const NewForm = ({ submitUser }) => {
   const [formState, setFormState] = useState({
@@ -13,9 +14,7 @@ const NewForm = ({ submitUser }) => {
   const [errors, setErrors] = useState({
     name: "",
     email: "",
-    motivation: "",
-    positions: "",
-    terms: "",
+    password: "",
   });
 
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
@@ -87,6 +86,7 @@ const NewForm = ({ submitUser }) => {
           value={formState.name}
           onChange={handleChange}
         />
+        {errors.name.length > 0 ? <p className="error">{errors.name}</p> : null}
       </FormGroup>
       <FormGroup>
         <label htmlFor="email">Email</label>
@@ -98,6 +98,9 @@ const NewForm = ({ submitUser }) => {
           value={formState.email}
           onChange={handleChange}
         />
+        {errors.email.length > 0 ? (
+          <p className="error">{errors.email}</p>
+        ) : null}
       </FormGroup>
       <FormGroup>
         <label htmlFor="password">Password</label>
@@ -109,6 +112,9 @@ const NewForm = ({ submitUser }) => {
           value={formState.password}
           onChange={handleChange}
         />
+        {errors.password.length > 0 ? (
+          <p className="error">{errors.password}</p>
+        ) : null}
       </FormGroup>
       <FormGroup check>
         <Label check>
