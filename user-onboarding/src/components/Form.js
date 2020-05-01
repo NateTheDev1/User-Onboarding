@@ -85,6 +85,7 @@ const NewForm = ({ submitUser }) => {
           placeholder="Name"
           value={formState.name}
           onChange={handleChange}
+          cy-data="name"
         />
         {errors.name.length > 0 ? <p className="error">{errors.name}</p> : null}
       </FormGroup>
@@ -97,6 +98,7 @@ const NewForm = ({ submitUser }) => {
           placeholder="Email"
           value={formState.email}
           onChange={handleChange}
+          cy-data="email"
         />
         {errors.email.length > 0 ? (
           <p className="error">{errors.email}</p>
@@ -111,6 +113,7 @@ const NewForm = ({ submitUser }) => {
           placeholder="Password"
           value={formState.password}
           onChange={handleChange}
+          cy-data="password"
         />
         {errors.password.length > 0 ? (
           <p className="error">{errors.password}</p>
@@ -118,8 +121,13 @@ const NewForm = ({ submitUser }) => {
       </FormGroup>
       <FormGroup check>
         <Label check>
-          <Input type="checkbox" onChange={handleChange} name="terms" /> I Agree
-          To The Terms Of Service
+          <Input
+            type="checkbox"
+            onChange={handleChange}
+            name="terms"
+            cy-data="terms"
+          />{" "}
+          I Agree To The Terms Of Service
         </Label>
       </FormGroup>
       <Button
@@ -127,6 +135,7 @@ const NewForm = ({ submitUser }) => {
         style={{ marginTop: "3%" }}
         type="submit"
         disabled={isButtonDisabled}
+        cy-data="submit"
       >
         Submit
       </Button>
